@@ -1,58 +1,78 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
 }
 
 .chat-container {
-    width: 350px;
-    background: white;
-    padding: 15px;
-    margin: 50px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .chat-box {
-    height: 300px;
+    max-height: 400px;
     overflow-y: auto;
-    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
     padding: 10px;
-    text-align: left;
-    background: #f9f9f9;
 }
 
-.bot-message, .user-message {
+.user-message, .bot-message {
+    margin: 5px 0;
     padding: 8px;
-    margin: 5px;
-    border-radius: 5px;
-    max-width: 80%;
-}
-
-.bot-message {
-    background: #e1f5fe;
+    border-radius: 3px;
 }
 
 .user-message {
-    background: #dcedc8;
+    background-color: #e3f2fd;
     text-align: right;
-    margin-left: auto;
 }
 
-input, button {
-    width: 80%;
+.bot-message {
+    background-color: #f5f5f5;
+    text-align: left;
+}
+
+#user-input, button, #file-upload {
+    width: 100%;
     padding: 10px;
-    margin-top: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
 }
 
-button {
+#suggestions {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 10;
+}
+
+.suggestion-item {
+    padding: 5px;
+}
+
+.suggestion-item:hover {
     cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    background-color: #f0f0f0;
 }
 
-button:hover {
-    background-color: #0056b3;
+.suggestion-item[title]:hover:after {
+    content: attr(title);
+    position: absolute;
+    background: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    z-index: 1;
+    max-width: 300px;
+    left: 100%;
+    top: 0;
+}
+
+button:focus, #user-input:focus, #file-upload:focus {
+    outline: 2px solid #007bff;
 }
